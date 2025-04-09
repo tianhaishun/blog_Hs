@@ -1,0 +1,105 @@
+{% extends 'main/base.html' %}
+{% load custom_filters %}
+
+{% block title %}Home - Personal Blog{% endblock %}
+
+{% block content %}
+<div class="profile-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto text-center">
+                <h1 class="display-4">{{ profile.name }}</h1>
+                <p class="lead">{{ profile.status }}</p>
+                <p>
+                    <i class="bi bi-telephone"></i> {{ profile.phone }} |
+                    <i class="bi bi-envelope"></i> {{ profile.email }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container section">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="mb-4">About Me</h2>
+            <p class="lead">{{ profile.summary }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container section">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="mb-4">Education</h2>
+            {% for edu in education %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ edu.school }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ edu.degree }} - {{ edu.department }}</h6>
+                    <p class="card-text">{{ edu.start_date|date:"Y.m" }} - {{ edu.end_date|date:"Y.m" }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="container section">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="mb-4">Skills</h2>
+            {% for skill in skills %}
+            <div class="mb-3">
+                <h5>{{ skill.name }}</h5>
+                <div class="progress skill-progress">
+                    <div class="progress-bar" role="progressbar" style="width: {{ skill.proficiency|multiply:20 }}%">
+                        {{ skill.proficiency }}/5
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="container section">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="mb-4">Work Experience</h2>
+            {% for exp in work_experience %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ exp.company }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ exp.position }} - {{ exp.department }}</h6>
+                    <p class="card-text">{{ exp.start_date|date:"Y.m" }} - {% if exp.current %}Present{% else %}{{ exp.end_date|date:"Y.m" }}{% endif %}</p>
+                    <p class="card-text">{{ exp.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="container section">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="mb-4">Projects</h2>
+            {% for project in projects %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ project.company }} - {{ project.role }}</h6>
+                    <p class="card-text">{{ project.start_date|date:"Y.m" }} - {% if project.current %}Present{% else %}{{ project.end_date|date:"Y.m" }}{% endif %}</p>
+                    <p class="card-text"><strong>Description:</strong> {{ project.description }}</p>
+                    <p class="card-text"><strong>Responsibilities:</strong> {{ project.responsibilities }}</p>
+                    {% if project.achievements %}
+                    <p class="card-text"><strong>Achievements:</strong> {{ project.achievements }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %} 
