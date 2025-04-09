@@ -1,105 +1,302 @@
 {% extends 'main/base.html' %}
-{% load custom_filters %}
-
-{% block title %}Home - Personal Blog{% endblock %}
+{% load static %}
+{% block title %}田海顺 - 资深测试工程师{% endblock %}
 
 {% block content %}
-<div class="profile-header">
+<!-- 英雄区域 -->
+<section class="hero">
+    <div class="hero-image" data-speed="0.3">
+        <img src="{% static 'img/hero-bg.jpg' %}" alt="背景" class="img-fluid w-100 h-100 object-fit-cover" onerror="this.src='https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80'">
+    </div>
+    <div class="hero-content text-center">
+        <h1 class="display-1 fw-bold text-reveal">田海顺</h1>
+        <p class="lead mb-4 text-secondary">资深测试工程师 · 车载软件专家 · 自动化测试领域专家</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#about" class="btn btn-apple">了解更多</a>
+            <a href="{% url 'contact' %}" class="btn btn-outline-dark rounded-pill">联系我</a>
+        </div>
+    </div>
+</section>
+
+<!-- 个人简介 -->
+<section id="about" class="py-5 scroll-reveal">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto text-center">
-                <h1 class="display-4">{{ profile.name }}</h1>
-                <p class="lead">{{ profile.status }}</p>
-                <p>
-                    <i class="bi bi-telephone"></i> {{ profile.phone }} |
-                    <i class="bi bi-envelope"></i> {{ profile.email }}
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container section">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <h2 class="mb-4">About Me</h2>
-            <p class="lead">{{ profile.summary }}</p>
-        </div>
-    </div>
-</div>
-
-<div class="container section">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <h2 class="mb-4">Education</h2>
-            {% for edu in education %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">{{ edu.school }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ edu.degree }} - {{ edu.department }}</h6>
-                    <p class="card-text">{{ edu.start_date|date:"Y.m" }} - {{ edu.end_date|date:"Y.m" }}</p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-
-<div class="container section">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <h2 class="mb-4">Skills</h2>
-            {% for skill in skills %}
-            <div class="mb-3">
-                <h5>{{ skill.name }}</h5>
-                <div class="progress skill-progress">
-                    <div class="progress-bar" role="progressbar" style="width: {{ skill.proficiency|multiply:20 }}%">
-                        {{ skill.proficiency }}/5
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <div class="position-relative">
+                    <img src="{% static 'img/profile.jpg' %}" alt="田海顺" class="img-fluid rounded-4 shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80'" style="width: 100%; max-width: 400px;">
+                    <div class="position-absolute top-0 start-0 translate-middle-y bg-white rounded-circle p-2 shadow-sm">
+                        <div class="rounded-circle bg-success" style="width: 12px; height: 12px;"></div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-
-<div class="container section">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <h2 class="mb-4">Work Experience</h2>
-            {% for exp in work_experience %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">{{ exp.company }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ exp.position }} - {{ exp.department }}</h6>
-                    <p class="card-text">{{ exp.start_date|date:"Y.m" }} - {% if exp.current %}Present{% else %}{{ exp.end_date|date:"Y.m" }}{% endif %}</p>
-                    <p class="card-text">{{ exp.description }}</p>
+            <div class="col-lg-7">
+                <h2 class="display-5 fw-bold mb-4 text-reveal">关于我</h2>
+                <p class="lead">我是一位拥有丰富经验的测试工程师，专注于自动化测试和性能优化领域。</p>
+                <p class="mb-4">在小米和高通等知名企业工作期间，我积累了丰富的项目经验，尤其是在自动化测试环境的搭建和优化方面。我熟练掌握Python、MySQL、Postman、Jmeter等工具，能够高效管理测试流程，确保任务的可追溯性和进度跟踪的准确性。</p>
+                <div class="d-flex gap-3">
+                    <a href="{% url 'about' %}" class="text-decoration-none fw-semibold">详细了解 <i class="bi bi-arrow-right"></i></a>
+                    <a href="{% url 'contact' %}" class="text-decoration-none fw-semibold">联系我 <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
-            {% endfor %}
         </div>
     </div>
-</div>
+</section>
 
-<div class="container section">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <h2 class="mb-4">Projects</h2>
-            {% for project in projects %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">{{ project.title }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ project.company }} - {{ project.role }}</h6>
-                    <p class="card-text">{{ project.start_date|date:"Y.m" }} - {% if project.current %}Present{% else %}{{ project.end_date|date:"Y.m" }}{% endif %}</p>
-                    <p class="card-text"><strong>Description:</strong> {{ project.description }}</p>
-                    <p class="card-text"><strong>Responsibilities:</strong> {{ project.responsibilities }}</p>
-                    {% if project.achievements %}
-                    <p class="card-text"><strong>Achievements:</strong> {{ project.achievements }}</p>
-                    {% endif %}
+<!-- 专业领域 -->
+<section class="py-5 bg-light scroll-reveal">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-center mb-5 text-reveal">专业领域</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 post-card">
+                    <div class="card-body p-4">
+                        <div class="d-inline-block p-3 rounded-circle bg-primary bg-opacity-10 mb-3">
+                            <i class="bi bi-gear-fill text-primary fs-4"></i>
+                        </div>
+                        <h3 class="h4 mb-3">自动化测试</h3>
+                        <p class="text-secondary">熟练使用Python、Selenium和uiautomator2等工具进行自动化测试脚本开发，提高测试覆盖率和执行效率。</p>
+                    </div>
                 </div>
             </div>
-            {% endfor %}
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 post-card">
+                    <div class="card-body p-4">
+                        <div class="d-inline-block p-3 rounded-circle bg-success bg-opacity-10 mb-3">
+                            <i class="bi bi-car-front-fill text-success fs-4"></i>
+                        </div>
+                        <h3 class="h4 mb-3">车载软件测试</h3>
+                        <p class="text-secondary">丰富的车载及电源硬件测试经验，熟练使用PCAN/CANoe工具测试CAN(FD)和LIN总线协议。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 post-card">
+                    <div class="card-body p-4">
+                        <div class="d-inline-block p-3 rounded-circle bg-warning bg-opacity-10 mb-3">
+                            <i class="bi bi-lightning-charge-fill text-warning fs-4"></i>
+                        </div>
+                        <h3 class="h4 mb-3">性能测试</h3>
+                        <p class="text-secondary">熟练使用Postman、Jmeter等工具进行接口测试，评估系统的响应时间、TPS等关键性能指标。</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+<!-- 最新项目 -->
+<section class="py-5 scroll-reveal">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-center mb-5 text-reveal">最新项目</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100 overflow-hidden post-card">
+                    <img src="{% static 'img/project1.jpg' %}" class="card-img-top" alt="Modena项目" onerror="this.src='https://images.unsplash.com/photo-1635006459906-0e7dee7609c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80'">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-dark mb-2">小米SU7</span>
+                        <h3 class="h4 mb-3">Modena项目</h3>
+                        <p class="text-secondary">负责小米SU7车型整体测试策略的制定和执行，确保测试活动与项目目标和时间表的一致性。</p>
+                        <a href="{% url 'projects' %}" class="text-decoration-none fw-semibold">了解更多 <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100 overflow-hidden post-card">
+                    <img src="{% static 'img/project2.jpg' %}" class="card-img-top" alt="Le Mans项目" onerror="this.src='https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80'">
+                    <div class="card-body p-4">
+                        <span class="badge bg-light text-dark mb-2">小米汽车</span>
+                        <h3 class="h4 mb-3">Le Mans项目</h3>
+                        <p class="text-secondary">负责Le Mans车型智能座舱的全面功能测试，确保系统在各种情况下的稳定运行。</p>
+                        <a href="{% url 'projects' %}" class="text-decoration-none fw-semibold">了解更多 <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系部分 -->
+<section class="py-5 bg-dark text-white scroll-reveal">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold mb-4 text-reveal">准备好一起合作了吗？</h2>
+                <p class="lead mb-4">如果您对我的工作感兴趣或有任何问题，欢迎随时与我联系。</p>
+                <a href="{% url 'contact' %}" class="btn btn-apple btn-lg">联系我</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="card bg-dark-subtle p-4 border-0 rounded-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-success me-3" style="width: 12px; height: 12px;"></div>
+                        <span>随时可联系</span>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1 text-secondary">电话</p>
+                        <p class="fs-5 fw-semibold">18569246651</p>
+                    </div>
+                    <div>
+                        <p class="mb-1 text-secondary">邮箱</p>
+                        <p class="fs-5 fw-semibold">li.09@qq.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 技能评估 -->
+<section class="py-5 scroll-reveal">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-center mb-5 text-reveal">专业技能</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 mb-0">Python</h3>
+                        <span class="badge bg-success">精通</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 mb-0">MySQL</h3>
+                        <span class="badge bg-success">精通</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 mb-0">Selenium</h3>
+                        <span class="badge bg-success">精通</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 92%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 mb-0">Postman/Jmeter</h3>
+                        <span class="badge bg-success">精通</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 mb-0">CAN/LIN协议</h3>
+                        <span class="badge bg-success">精通</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 mb-0">Jenkins</h3>
+                        <span class="badge bg-success">精通</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'skills' %}" class="btn btn-outline-dark rounded-pill">查看全部技能</a>
+        </div>
+    </div>
+</section>
+
+<!-- 自定义CSS -->
+<style>
+    .hero {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    
+    .hero-image::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);
+    }
+    
+    .hero-content {
+        color: white;
+        padding: 2rem;
+        max-width: 800px;
+        z-index: 1;
+    }
+    
+    .btn-apple {
+        background: #fff;
+        color: #000;
+        border-radius: 30px;
+        padding: 12px 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-apple:hover {
+        background: rgba(255,255,255,0.8);
+        transform: translateY(-2px);
+    }
+    
+    .post-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .post-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .text-reveal span {
+        opacity: 0;
+        animation: fadeIn 0.5s forwards;
+        display: inline-block;
+    }
+    
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+    
+    .progress {
+        overflow: visible;
+        background: rgba(0,0,0,0.05);
+        border-radius: 10px;
+    }
+    
+    .progress-bar {
+        position: relative;
+        border-radius: 10px;
+        overflow: visible;
+    }
+</style>
 {% endblock %} 

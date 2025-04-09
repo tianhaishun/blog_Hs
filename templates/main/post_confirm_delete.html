@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Delete Post - Personal Blog{% endblock %}
+
+{% block content %}
+<div class="hero" style="height: 50vh;">
+    <div class="hero-content">
+        <h1 class="display-2 text-reveal">Delete Post</h1>
+        <p class="lead text-reveal">This action cannot be undone</p>
+    </div>
+</div>
+
+<section class="featured-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card scroll-reveal">
+                    <div class="card-body text-center p-5">
+                        <h2 class="h4 mb-4 text-reveal">Are you sure you want to delete "{{ post.title }}"?</h2>
+                        <p class="text-muted mb-5">This action will permanently delete this post and all associated data.</p>
+                        
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="d-flex gap-3 justify-content-center">
+                                <button type="submit" class="btn btn-apple" style="background-color: #ff3b30;">Delete Post</button>
+                                <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 
