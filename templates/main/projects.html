@@ -1,13 +1,346 @@
 {% extends 'main/base.html' %}
-{% block title %}项目{% endblock %}
+{% load static %}
+
+{% block title %}项目经验 - 田海顺{% endblock %}
+
+{% block extra_css %}
+<style>
+    .project-card {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+        margin-bottom: 3rem;
+        transition: transform 0.3s ease;
+        background-color: #fff;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .project-image {
+        height: 240px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .project-card:hover .project-image img {
+        transform: scale(1.05);
+    }
+    
+    .project-company {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 0.35rem 1rem;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .project-content {
+        padding: 2rem;
+    }
+    
+    .project-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+    }
+    
+    .project-date {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+    }
+    
+    .project-tag {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background-color: rgba(0, 123, 255, 0.1);
+        color: var(--primary-color);
+        border-radius: 4px;
+        font-size: 0.85rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .project-tags {
+        margin-bottom: 1.5rem;
+    }
+    
+    .project-description {
+        color: #555;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+    }
+    
+    .project-responsibilities {
+        margin-bottom: 1.5rem;
+    }
+    
+    .project-responsibilities h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .project-responsibilities ul {
+        padding-left: 1.5rem;
+    }
+    
+    .project-responsibilities li {
+        margin-bottom: 0.5rem;
+        position: relative;
+    }
+    
+    .project-achievements h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .counter-section {
+        padding: 4rem 0;
+        background-color: #f8f9fa;
+        margin: 3rem 0;
+    }
+    
+    .counter-item {
+        text-align: center;
+    }
+    
+    .counter-value {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+    
+    .counter-label {
+        font-size: 1.2rem;
+        color: #555;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center mb-4">项目</h1>
-    <h3>Modena项目（小米SU7）</h3>
-    <p>负责Modena车型整体测试策略的制定和执行，确保测试活动与项目目标和时间表的一致性。</p>
-    <h3>Le Mans项目</h3>
-    <p>负责Le Mans车型智能座舱的全面功能测试，确保系统在各种情况下的稳定运行。</p>
-    <h3>Qualcomm X86 Wireless Chipset Integration</h3>
-    <p>负责Wi-Fi和蓝牙芯片在X86平台的测试工作，确保芯片的性能与稳定性。</p>
+<div class="content-section">
+    <div class="row mb-5">
+        <div class="col-lg-8">
+            <h1 class="section-title fade-in">项目经验</h1>
+            <p class="subtitle fade-in">我参与的关键项目及取得的成就</p>
+        </div>
+    </div>
+    
+    <div class="project-card fade-in">
+        <div class="row g-0">
+            <div class="col-lg-5">
+                <div class="project-image">
+                    <img src="{% static 'img/xiaomi-su7.jpg' %}" alt="小米SU7" onerror="this.src='https://images.unsplash.com/photo-1635006459906-0e7dee7609c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80'">
+                    <div class="project-company">小米汽车科技</div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="project-content">
+                    <h2 class="project-title">Modena项目（小米SU7）</h2>
+                    <div class="project-date">2023年07月 - 至今</div>
+                    
+                    <div class="project-tags">
+                        <span class="project-tag">汽车测试</span>
+                        <span class="project-tag">智能座舱</span>
+                        <span class="project-tag">自动化测试</span>
+                        <span class="project-tag">车载软件</span>
+                    </div>
+                    
+                    <p class="project-description">
+                        Modena项目是小米公司推出的第一款电动汽车，命名为SU7。这款车型作为小米进军汽车行业的开端，具有多项创新技术和特点。智能座舱是车型的亮点之一，配备了先进的用户界面和交互系统，包括语音控制、触摸屏操作等。
+                    </p>
+                    
+                    <div class="project-responsibilities">
+                        <h3>我的职责：</h3>
+                        <ul>
+                            <li>负责Modena车型整体测试策略的制定和执行</li>
+                            <li>领导智能座舱UI的自动化测试流程，包括测试用例设计和脚本开发</li>
+                            <li>执行上下电测试和故障注入测试，监控系统稳定性</li>
+                            <li>负责智能座舱与车辆其他系统的集成测试</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="project-card fade-in">
+        <div class="row g-0">
+            <div class="col-lg-5">
+                <div class="project-image">
+                    <img src="{% static 'img/le-mans.jpg' %}" alt="Le Mans项目" onerror="this.src='https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80'">
+                    <div class="project-company">小米汽车科技</div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="project-content">
+                    <h2 class="project-title">Le Mans项目</h2>
+                    <div class="project-date">2023年11月 - 至今</div>
+                    
+                    <div class="project-tags">
+                        <span class="project-tag">汽车测试</span>
+                        <span class="project-tag">新能源汽车</span>
+                        <span class="project-tag">用户体验</span>
+                        <span class="project-tag">故障注入</span>
+                    </div>
+                    
+                    <p class="project-description">
+                        LeMans项目作为小米筹划的第二部新能源汽车，正处于早期发展阶段。这个项目不仅关注车辆的技术创新，也着眼于为未来的汽车市场提供先进的新能源解决方案。
+                    </p>
+                    
+                    <div class="project-responsibilities">
+                        <h3>我的职责：</h3>
+                        <ul>
+                            <li>负责Le Mans车型智能座舱的全面功能测试</li>
+                            <li>对智能座舱的用户体验进行评估，包括语音控制、触摸屏反应和定制化功能</li>
+                            <li>开发和执行故障注入测试脚本，评估系统的稳定性</li>
+                            <li>监控智能座舱软件的版本状态，确保系统更新及时且无故障</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="project-card fade-in">
+        <div class="row g-0">
+            <div class="col-lg-5">
+                <div class="project-image">
+                    <img src="{% static 'img/can-test.jpg' %}" alt="车载网络通信测试" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'">
+                    <div class="project-company">小米汽车科技</div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="project-content">
+                    <h2 class="project-title">Modena车载网络通信测试项目</h2>
+                    <div class="project-date">2023年09月 - 2024年08月</div>
+                    
+                    <div class="project-tags">
+                        <span class="project-tag">CAN协议</span>
+                        <span class="project-tag">LIN协议</span>
+                        <span class="project-tag">车载通信</span>
+                        <span class="project-tag">硬件测试</span>
+                    </div>
+                    
+                    <p class="project-description">
+                        该项目旨在测试和验证SU7车型的车载网络通信，包括CAN（FD）、LIN等车载通信协议，确保车辆各控制器之间的通信稳定可靠，为整车功能的正常运行提供保障。
+                    </p>
+                    
+                    <div class="project-responsibilities">
+                        <h3>我的职责：</h3>
+                        <ul>
+                            <li>使用Vector的CANoe工具测试和验证CAN FD、LIN等车载通信协议</li>
+                            <li>编写CAPL脚本模拟节点通信行为，确保通信协议的正确性</li>
+                            <li>从零搭建车载控制器测试台架，选择并配置CAN接口卡、网络模拟器等硬件设备</li>
+                            <li>设计覆盖正常通信、异常处理和故障注入等场景的测试用例</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="project-card fade-in">
+        <div class="row g-0">
+            <div class="col-lg-5">
+                <div class="project-image">
+                    <img src="{% static 'img/qualcomm.jpg' %}" alt="高通无线芯片测试" onerror="this.src='https://images.unsplash.com/photo-1610664921890-ebad05086414?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'">
+                    <div class="project-company">高通企业管理</div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="project-content">
+                    <h2 class="project-title">Qualcomm X86 Wireless Chipset Integration</h2>
+                    <div class="project-date">2021年06月 - 2023年05月</div>
+                    
+                    <div class="project-tags">
+                        <span class="project-tag">Wi-Fi芯片</span>
+                        <span class="project-tag">蓝牙芯片</span>
+                        <span class="project-tag">自动化测试</span>
+                        <span class="project-tag">性能测试</span>
+                    </div>
+                    
+                    <p class="project-description">
+                        在高通担任自动化测试工程师期间，我负责Wi-Fi和蓝牙芯片在X86平台的测试工作。项目目标是通过全面的自动化测试流程，确保芯片的性能与稳定性，从而满足市场要求并提升用户体验。
+                    </p>
+                    
+                    <div class="project-responsibilities">
+                        <h3>我的职责：</h3>
+                        <ul>
+                            <li>设计并实施自动化测试环境的搭建，包括网络配置和PDU电源管理</li>
+                            <li>使用Python语言开发自动化测试脚本，覆盖Wi-Fi和蓝牙芯片的功能与性能测试</li>
+                            <li>设计并实现基于Python的日志分析流程，用于识别测试中的问题</li>
+                            <li>负责执行自动化测试脚本，收集测试数据，并进行深度分析</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="counter-section fade-in">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="counter-item">
+                    <div class="counter-value">15+</div>
+                    <div class="counter-label">项目经验</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="counter-item">
+                    <div class="counter-value">3+</div>
+                    <div class="counter-label">知名公司</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="counter-item">
+                    <div class="counter-value">50+</div>
+                    <div class="counter-label">功能模块测试</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="counter-item">
+                    <div class="counter-value">1000+</div>
+                    <div class="counter-label">测试用例</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content-section">
+    <div class="row">
+        <div class="col-12 fade-in">
+            <div class="elegant-card">
+                <h2 class="h3 mb-4">项目心得</h2>
+                <p class="elegant-text">
+                    通过参与这些多样化的项目，我积累了丰富的行业经验，特别是在汽车电子和无线通信领域。每个项目都有其独特的挑战，而克服这些挑战的过程让我不断提升专业技能和解决问题的能力。
+                </p>
+                <p class="elegant-text">
+                    我相信，优秀的测试工程师不仅要关注技术细节，还要从用户体验和产品质量的角度思考问题。在未来的项目中，我将继续秉持这一理念，努力为产品的稳定性和用户体验提供更有价值的保障。
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %} 

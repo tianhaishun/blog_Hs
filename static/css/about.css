@@ -1,0 +1,395 @@
+/* 关于页面样式 */
+
+/* 通用部分 */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.subtitle {
+    color: var(--primary-color);
+    font-weight: 600;
+    position: relative;
+}
+
+.elegant-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.elegant-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+
+/* 英雄部分 */
+.about-hero-section {
+    position: relative;
+}
+
+.about-image-container {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--primary-color);
+    color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.experience-badge .number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.experience-badge .text {
+    font-size: 0.875rem;
+}
+
+.about-content .personal-info .info-item {
+    margin-bottom: 15px;
+}
+
+.about-content .info-label {
+    font-weight: 600;
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.about-content .social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* 技能部分 */
+.skill-category {
+    margin-bottom: 30px;
+}
+
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.skill-percentage {
+    font-weight: 600;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 10px;
+    background-color: #e9ecef;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+}
+
+.tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tool-item .badge {
+    padding: 8px 15px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* 经验部分 */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 3px;
+    background: var(--primary-color);
+    opacity: 0.2;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.timeline-panel {
+    margin-left: 60px;
+    position: relative;
+}
+
+.timeline-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.company {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.timeline-date {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-bottom: 15px;
+}
+
+.timeline-list {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.timeline-list li {
+    margin-bottom: 5px;
+}
+
+/* 认证部分 */
+.certification-item {
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.certification-item .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+/* 兴趣爱好部分 */
+.interest-item {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.interest-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.interest-icon {
+    color: var(--primary-color);
+}
+
+.interest-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* CTA 部分 */
+.cta-section {
+    background-color: #f8f9fa;
+}
+
+/* 测试工程师部分 */
+.testing-section {
+    background-color: #f8f9fa;
+}
+
+.testing-info, .testing-tools, .testing-approach {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.testing-info:hover, .testing-tools:hover, .testing-approach:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+
+.testing-info h3, .testing-tools h3, .testing-approach h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.testing-info h3 i, .testing-tools h3 i, .testing-approach h3 i {
+    margin-right: 10px;
+}
+
+.testing-skills-list {
+    padding-left: 20px;
+}
+
+.testing-skills-list li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.testing-skills-list li:before {
+    content: "✓";
+    color: var(--primary-color);
+    position: absolute;
+    left: -20px;
+    font-weight: bold;
+}
+
+.testing-tools-grid {
+    margin-top: 15px;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.tech-item i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+.testing-approach p {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* 响应式调整 */
+@media (max-width: 991.98px) {
+    .experience-badge {
+        width: 80px;
+        height: 80px;
+        bottom: -15px;
+        right: -15px;
+    }
+    
+    .experience-badge .number {
+        font-size: 2rem;
+    }
+    
+    .section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .timeline-panel {
+        margin-left: 50px;
+    }
+    
+    .timeline:before {
+        left: 18px;
+    }
+    
+    .timeline-badge {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .section {
+        padding: 50px 0;
+    }
+    
+    .about-image-container {
+        max-width: 80%;
+        margin: 0 auto 30px;
+    }
+    
+    .experience-badge {
+        width: 70px;
+        height: 70px;
+        bottom: -10px;
+        right: -10px;
+    }
+    
+    .experience-badge .number {
+        font-size: 1.75rem;
+    }
+    
+    .experience-badge .text {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .section {
+        padding: 40px 0;
+    }
+    
+    .experience-badge {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .experience-badge .number {
+        font-size: 1.5rem;
+    }
+} 

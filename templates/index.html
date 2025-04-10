@@ -1,0 +1,328 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}首页 - 田海顺的个人博客{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- 顶部大图 -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6 order-lg-2">
+                <div class="hero-image-container">
+                    <img src="{% static 'img/profile.jpg' %}" alt="田海顺" class="hero-image img-fluid rounded-circle shadow-lg">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="hero-content">
+                    <h1 class="display-4 fw-bold fade-in">你好，我是田海顺</h1>
+                    <h2 class="mb-4 text-secondary fade-in delay-1">测试开发工程师 | 自动化测试专家</h2>
+                    <p class="lead mb-4 fade-in delay-2">我专注于软件质量和自动化测试，致力于提高软件开发过程中的效率和质量。</p>
+                    <div class="d-flex gap-3 fade-in delay-3">
+                        <a href="{% url 'about' %}" class="btn btn-primary btn-lg">了解更多</a>
+                        <a href="{% url 'contact' %}" class="btn btn-outline-primary btn-lg">联系我</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 技能展示 -->
+<section class="section skills-section bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">我的专业技能</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card elegant-card h-100">
+                    <div class="card-body text-center">
+                        <div class="icon-wrapper mb-3">
+                            <i class="fas fa-code fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="card-title subtitle mb-3">自动化测试</h3>
+                        <p class="card-text">设计和实现自动化测试框架，提高测试效率和覆盖率，减少重复性工作。</p>
+                        <div class="skill-tags">
+                            <span class="badge bg-primary-light">Selenium</span>
+                            <span class="badge bg-primary-light">Pytest</span>
+                            <span class="badge bg-primary-light">Appium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card elegant-card h-100">
+                    <div class="card-body text-center">
+                        <div class="icon-wrapper mb-3">
+                            <i class="fas fa-tachometer-alt fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="card-title subtitle mb-3">性能测试</h3>
+                        <p class="card-text">进行全面的性能测试和分析，确保系统在各种负载情况下的稳定性和响应速度。</p>
+                        <div class="skill-tags">
+                            <span class="badge bg-primary-light">JMeter</span>
+                            <span class="badge bg-primary-light">LoadRunner</span>
+                            <span class="badge bg-primary-light">Locust</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card elegant-card h-100">
+                    <div class="card-body text-center">
+                        <div class="icon-wrapper mb-3">
+                            <i class="fas fa-cogs fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="card-title subtitle mb-3">持续集成</h3>
+                        <p class="card-text">搭建和维护CI/CD流程，实现测试自动化和持续交付，提高团队开发效率。</p>
+                        <div class="skill-tags">
+                            <span class="badge bg-primary-light">Jenkins</span>
+                            <span class="badge bg-primary-light">Travis CI</span>
+                            <span class="badge bg-primary-light">GitHub Actions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 最新博客 -->
+<section class="section blog-section">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="section-title mb-0">最新博文</h2>
+            <a href="{% url 'blog' %}" class="btn btn-outline-primary">查看所有博文</a>
+        </div>
+        <div class="row g-4">
+            <!-- 这里将来会循环展示最新的博客文章 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card elegant-card h-100">
+                    <img src="{% static 'img/blog-1.jpg' %}" class="card-img-top" alt="博客图片">
+                    <div class="card-body">
+                        <div class="card-meta mb-2">
+                            <span><i class="far fa-calendar me-1"></i> 2023-09-15</span>
+                            <span><i class="far fa-folder me-1"></i> 自动化测试</span>
+                        </div>
+                        <h3 class="card-title subtitle">Selenium 4.0新特性详解</h3>
+                        <p class="card-text">Selenium 4.0带来了许多令人兴奋的新功能，包括相对定位器和改进的Grid...</p>
+                        <a href="#" class="btn btn-link">阅读更多 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card elegant-card h-100">
+                    <img src="{% static 'img/blog-2.jpg' %}" class="card-img-top" alt="博客图片">
+                    <div class="card-body">
+                        <div class="card-meta mb-2">
+                            <span><i class="far fa-calendar me-1"></i> 2023-08-28</span>
+                            <span><i class="far fa-folder me-1"></i> 性能测试</span>
+                        </div>
+                        <h3 class="card-title subtitle">如何进行有效的性能测试</h3>
+                        <p class="card-text">本文将分享性能测试的最佳实践，以及如何解读测试结果并进行性能优化...</p>
+                        <a href="#" class="btn btn-link">阅读更多 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card elegant-card h-100">
+                    <img src="{% static 'img/blog-3.jpg' %}" class="card-img-top" alt="博客图片">
+                    <div class="card-body">
+                        <div class="card-meta mb-2">
+                            <span><i class="far fa-calendar me-1"></i> 2023-08-10</span>
+                            <span><i class="far fa-folder me-1"></i> 持续集成</span>
+                        </div>
+                        <h3 class="card-title subtitle">使用GitHub Actions自动化测试流程</h3>
+                        <p class="card-text">GitHub Actions提供了强大的CI/CD功能，本文介绍如何配置它来自动运行测试...</p>
+                        <a href="#" class="btn btn-link">阅读更多 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 项目展示 -->
+<section class="section projects-section bg-light">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="section-title mb-0">精选项目</h2>
+            <a href="{% url 'portfolio' %}" class="btn btn-outline-primary">查看所有项目</a>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card elegant-card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title subtitle">电商平台自动化测试框架</h3>
+                        <p class="card-text">为某大型电商平台开发的全面自动化测试框架，支持Web、移动端和API测试，实现了90%以上的测试覆盖率。</p>
+                        <div class="d-flex mt-3">
+                            <span class="badge bg-primary me-2">Python</span>
+                            <span class="badge bg-primary me-2">Selenium</span>
+                            <span class="badge bg-primary me-2">Appium</span>
+                            <span class="badge bg-primary">Pytest</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card elegant-card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title subtitle">CI/CD流水线优化</h3>
+                        <p class="card-text">重新设计并优化了公司的CI/CD流水线，将构建和测试时间减少了60%，同时提高了测试的可靠性和稳定性。</p>
+                        <div class="d-flex mt-3">
+                            <span class="badge bg-primary me-2">Jenkins</span>
+                            <span class="badge bg-primary me-2">Docker</span>
+                            <span class="badge bg-primary">Shell脚本</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 客户评价 -->
+<section class="section testimonials-section">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">客户评价</h2>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="card elegant-card testimonial-card h-100">
+                    <div class="card-body">
+                        <div class="testimonial-rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"田海顺在我们的项目中表现出色，他建立的自动化测试框架大大提高了我们的测试效率，并帮助我们发现了许多潜在问题。"</p>
+                        <div class="testimonial-author d-flex align-items-center mt-4">
+                            <img src="{% static 'img/client-1.jpg' %}" alt="客户头像" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h5 class="mb-0">张明</h5>
+                                <p class="mb-0 text-muted">某科技公司技术总监</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card elegant-card testimonial-card h-100">
+                    <div class="card-body">
+                        <div class="testimonial-rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"田海顺的专业能力和敬业精神给我留下了深刻印象。他不仅完成了所有指定的任务，还提出了许多创新的解决方案，帮助我们优化了整个测试流程。"</p>
+                        <div class="testimonial-author d-flex align-items-center mt-4">
+                            <img src="{% static 'img/client-2.jpg' %}" alt="客户头像" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h5 class="mb-0">李娜</h5>
+                                <p class="mb-0 text-muted">某电商平台产品经理</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card elegant-card testimonial-card h-100">
+                    <div class="card-body">
+                        <div class="testimonial-rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p class="card-text">"与田海顺合作是一次愉快的经历。他对测试自动化的深入理解和解决问题的能力帮助我们显著提升了产品质量。"</p>
+                        <div class="testimonial-author d-flex align-items-center mt-4">
+                            <img src="{% static 'img/client-3.jpg' %}" alt="客户头像" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h5 class="mb-0">王强</h5>
+                                <p class="mb-0 text-muted">某金融机构IT经理</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系表单 -->
+<section class="section contact-section bg-light">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h2 class="section-title mb-4">与我联系</h2>
+                <p class="mb-4">如果您对我的服务或项目有任何疑问，请随时联系我。无论是咨询、合作还是职业机会，我都很乐意听取您的想法。</p>
+                <div class="contact-info">
+                    <div class="d-flex mb-3">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="subtitle mb-1">邮箱</h5>
+                            <p>tianhaishun@example.com</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-phone text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="subtitle mb-1">电话</h5>
+                            <p>+86 138 xxxx xxxx</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="subtitle mb-1">地址</h5>
+                            <p>北京市朝阳区</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card elegant-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title subtitle mb-4">发送消息</h3>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">您的姓名</label>
+                                <input type="text" class="form-control" id="name" placeholder="请输入您的姓名">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">电子邮箱</label>
+                                <input type="email" class="form-control" id="email" placeholder="请输入您的电子邮箱">
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">主题</label>
+                                <input type="text" class="form-control" id="subject" placeholder="请输入消息主题">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">消息内容</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="请输入您的消息内容"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">发送消息</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %} 

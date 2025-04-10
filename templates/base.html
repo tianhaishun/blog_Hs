@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}田海顺的个人博客{% endblock %}</title>
+    
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 共享样式 -->
+    <link rel="stylesheet" href="{% static 'css/shared-styles.css' %}">
+    
+    <!-- 页面特定样式 -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'img/logo.png' %}" alt="田海顺" width="30" height="30" class="d-inline-block align-text-top me-2">
+                田海顺
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'index' %}">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">关于我</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/blog/' %}active{% endif %}" href="{% url 'blog' %}">博客</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/portfolio/' %}active{% endif %}" href="{% url 'portfolio' %}">作品集</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'contact' %}">联系我</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">关于我</h5>
+                    <p class="mb-3">一名热衷于自动化测试和软件质量保障的专业人士，致力于高效软件交付和卓越用户体验。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">导航</h5>
+                    <a href="{% url 'index' %}" class="footer-link">首页</a>
+                    <a href="{% url 'about' %}" class="footer-link">关于我</a>
+                    <a href="{% url 'blog' %}" class="footer-link">博客</a>
+                    <a href="{% url 'portfolio' %}" class="footer-link">作品集</a>
+                    <a href="{% url 'contact' %}" class="footer-link">联系我</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">技术领域</h5>
+                    <a href="#" class="footer-link">自动化测试</a>
+                    <a href="#" class="footer-link">性能测试</a>
+                    <a href="#" class="footer-link">持续集成</a>
+                    <a href="#" class="footer-link">Web开发</a>
+                    <a href="#" class="footer-link">Python编程</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">联系方式</h5>
+                    <p class="mb-1"><i class="fas fa-envelope me-2"></i> li.09@qq.com</p>
+                    <p class="mb-1"><i class="fas fa-phone me-2"></i> +86 138 xxxx xxxx</p>
+                    <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i> 上海市, 中国</p>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; {% now "Y" %} 田海顺. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">用爱与代码精心设计</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 和 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 共享脚本 -->
+    <script src="{% static 'js/main.js' %}"></script>
+    
+    <!-- 页面特定脚本 -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html> 

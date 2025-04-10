@@ -1,20 +1,387 @@
 {% extends 'main/base.html' %}
-{% block title %}技能和证书{% endblock %}
+{% load static %}
+
+{% block title %}技能与证书 - 田海顺{% endblock %}
+
+{% block extra_css %}
+<style>
+    .skill-category {
+        position: relative;
+        margin-bottom: 3rem;
+    }
+    
+    .skill-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        background-color: rgba(0, 123, 255, 0.1);
+    }
+    
+    .skill-icon i {
+        color: var(--primary-color);
+        font-size: 1.25rem;
+    }
+    
+    .skill-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .skill-info {
+        flex: 1;
+    }
+    
+    .skill-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        font-size: 1.1rem;
+    }
+    
+    .skill-description {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .skill-level {
+        display: flex;
+        align-items: center;
+    }
+    
+    .skill-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #e9ecef;
+        margin-right: 5px;
+    }
+    
+    .skill-dot.active {
+        background-color: var(--primary-color);
+    }
+    
+    .certificate-card {
+        position: relative;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid #eaeaea;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .certificate-card:hover {
+        border-color: var(--primary-color);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .certificate-card .date {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 0.875rem;
+        color: #888;
+    }
+    
+    .certificate-name {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .certificate-issuer {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+    
+    .skill-metrics {
+        padding: 3rem 0;
+        background-color: #f8f9fa;
+        margin: 3rem 0;
+    }
+    
+    .metric-item {
+        text-align: center;
+    }
+    
+    .metric-value {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+    }
+    
+    .metric-label {
+        font-size: 1.1rem;
+        color: #555;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center mb-4">技能和证书</h1>
-    <h3>技能</h3>
-    <ul>
-        <li>熟练掌握MySQL，擅长进行增删改查操作。</li>
-        <li>熟练使用Postman、Jmeter进行接口测试。</li>
-        <li>掌握Python，擅长自动化测试脚本开发。</li>
-        <li>熟练使用Selenium+unittest进行web和UI自动化测试。</li>
-        <li>精通Charles抓包工具，擅长定位复杂BUG。</li>
-    </ul>
-    <h3>证书</h3>
-    <ul>
-        <li>计算机二级</li>
-        <li>驾驶证</li>
-    </ul>
+<div class="content-section">
+    <div class="row mb-5">
+        <div class="col-lg-8">
+            <h1 class="section-title fade-in">专业技能</h1>
+            <p class="subtitle fade-in">我的技术专长和专业认证</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-6 fade-in">
+            <div class="skill-category mb-5">
+                <h2 class="h3 mb-4">测试工具与技术</h2>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">Python自动化测试</h3>
+                        <p class="skill-description">熟练使用Python开发自动化测试脚本，提高测试效率</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-database"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">MySQL数据库</h3>
+                        <p class="skill-description">擅长进行增删改查操作，用于日常数据管理及测试环境的数据初始化和维护</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-send"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">Postman/Jmeter</h3>
+                        <p class="skill-description">熟练使用接口测试工具，评估系统的响应时间、TPS等关键性能指标</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-window"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">Selenium/Airtest</h3>
+                        <p class="skill-description">熟练使用Web和UI自动化测试框架，提升测试覆盖率</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h2 class="h3 mb-4">专业测试方法</h2>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-layers"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">测试用例设计</h3>
+                        <p class="skill-description">掌握等价类、边界值分析和场景法等测试设计方法</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-bug"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">缺陷管理</h3>
+                        <p class="skill-description">熟练使用AONE/Jira/cida/dts进行缺陷管理，结合SVN/git进行版本控制</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-infinity"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">持续集成/持续部署</h3>
+                        <p class="skill-description">熟练配置Jenkins持续集成工具，管理任务构建、插件配置及自动化流程</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 fade-in">
+            <div class="skill-category mb-5">
+                <h2 class="h3 mb-4">车载测试技能</h2>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">CAN/LIN总线协议</h3>
+                        <p class="skill-description">熟练使用PCAN/CANoe工具测试CAN(FD)和LIN总线协议，确保通信系统的稳定性</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">电源硬件测试</h3>
+                        <p class="skill-description">熟练使用Dewetron测试设备，通过采集电流、电压及功率波形，分析逆变器保护逻辑</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="bi bi-gear-wide-connected"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3 class="skill-title">HIL仿真测试</h3>
+                        <p class="skill-description">熟练搭建复杂测试环境，包括HIL系统、光伏逆变器测试台架及电网模拟器</p>
+                        <div class="skill-level">
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot active"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h2 class="h3 mb-4">证书与认证</h2>
+                
+                <div class="certificate-card fade-in">
+                    <span class="date">2020年</span>
+                    <h3 class="certificate-name">计算机二级证书</h3>
+                    <p class="certificate-issuer">中国教育部考试中心</p>
+                </div>
+                
+                <div class="certificate-card fade-in">
+                    <span class="date">2019年</span>
+                    <h3 class="certificate-name">驾驶证</h3>
+                    <p class="certificate-issuer">中国公安部交通管理局</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="skill-metrics fade-in">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="metric-item">
+                    <div class="metric-value">12+</div>
+                    <div class="metric-label">测试工具精通</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-item">
+                    <div class="metric-value">5+</div>
+                    <div class="metric-label">年测试经验</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-item">
+                    <div class="metric-value">500+</div>
+                    <div class="metric-label">自动化测试用例</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-item">
+                    <div class="metric-value">3+</div>
+                    <div class="metric-label">领域专长</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content-section">
+    <div class="row">
+        <div class="col-12 fade-in">
+            <div class="elegant-card">
+                <h2 class="h3 mb-4">持续学习与成长</h2>
+                <p class="elegant-text">
+                    我深信技术能力的持续提升是测试工程师职业发展的关键。通过不断学习新技术、参加行业研讨会和实践项目，我不断丰富自己的专业知识和技能。在快速发展的技术领域，保持学习的热情和适应变化的能力使我能够始终站在技术前沿。
+                </p>
+                <p class="elegant-text">
+                    我特别注重跨团队协作能力的培养，善于从多角度思考问题，以确保测试工作能够真正提升产品质量。未来，我计划进一步深化自动化测试和CI/CD领域的专业技能，探索AI在测试领域的应用可能。
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %} 

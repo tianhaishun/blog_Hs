@@ -1,18 +1,296 @@
 {% extends 'main/base.html' %}
-{% block title %}联系{% endblock %}
+{% load static %}
+
+{% block title %}联系我 - 田海顺{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-info-card {
+        border-radius: 16px;
+        background-color: #fff;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+        padding: 2.5rem;
+        height: 100%;
+    }
+    
+    .contact-section {
+        padding: 5rem 0;
+        background-color: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .contact-section::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: rgba(0, 123, 255, 0.05);
+        z-index: 0;
+    }
+    
+    .contact-section::after {
+        content: '';
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: rgba(0, 123, 255, 0.05);
+        z-index: 0;
+    }
+    
+    .contact-info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-info-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background-color: rgba(0, 123, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.25rem;
+        flex-shrink: 0;
+    }
+    
+    .contact-icon i {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+    }
+    
+    .contact-text h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-text p {
+        color: #555;
+        margin-bottom: 0;
+    }
+    
+    .contact-form .form-control {
+        border-radius: 8px;
+        padding: 0.75rem 1.25rem;
+        border: 1px solid #e0e0e0;
+        font-size: 1rem;
+    }
+    
+    .contact-form .form-control:focus {
+        box-shadow: none;
+        border-color: var(--primary-color);
+    }
+    
+    .contact-form textarea.form-control {
+        min-height: 150px;
+    }
+    
+    .send-btn {
+        background-color: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.75rem 2rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .send-btn:hover {
+        background-color: #0069d9;
+        transform: translateY(-2px);
+    }
+    
+    .social-links {
+        display: flex;
+        margin-top: 1.5rem;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        color: #555;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+        transform: translateY(-3px);
+    }
+    
+    .map-container {
+        height: 300px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center mb-4">联系我</h1>
-    <p>如果您对我的工作感兴趣或有任何问题，请随时通过以下方式与我联系：</p>
-    <ul>
-        <li>电话：18569246651</li>
-        <li>邮箱：li.09@qq.com</li>
-    </ul>
-    <h3>社交媒体</h3>
-    <div class="d-flex gap-3">
-        <a href="#" class="text-decoration-none"><i class="bi bi-twitter"></i> Twitter</a>
-        <a href="#" class="text-decoration-none"><i class="bi bi-github"></i> GitHub</a>
-        <a href="#" class="text-decoration-none"><i class="bi bi-linkedin"></i> LinkedIn</a>
+<div class="content-section">
+    <div class="row mb-5">
+        <div class="col-12">
+            <h1 class="section-title fade-in">联系我</h1>
+            <p class="subtitle fade-in">有合作意向或技术交流，欢迎随时与我联系</p>
+        </div>
+    </div>
+</div>
+
+<section class="contact-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-5 fade-in">
+                <div class="contact-info-card">
+                    <h2 class="mb-4">联系信息</h2>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>电话</h3>
+                            <p>18569246651</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>邮箱</h3>
+                            <p>li.09@qq.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>地址</h3>
+                            <p>中国，上海市</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>工作时间</h3>
+                            <p>周一至周五: 11:00 - 21:00</p>
+                            <p>周末: 休息</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="bi bi-wechat"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-7 fade-in">
+                <div class="contact-info-card">
+                    <h2 class="mb-4">发送消息</h2>
+                    
+                    <form class="contact-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">您的姓名</label>
+                                    <input type="text" class="form-control" id="name" placeholder="请输入您的姓名">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">电子邮箱</label>
+                                    <input type="email" class="form-control" id="email" placeholder="请输入您的邮箱">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">主题</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="请输入消息主题">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="mb-4">
+                                    <label for="message" class="form-label">消息内容</label>
+                                    <textarea class="form-control" id="message" placeholder="请输入您想咨询或交流的内容"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <button type="submit" class="send-btn">发送消息 <i class="bi bi-send ms-2"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content-section">
+    <div class="row">
+        <div class="col-12 mb-5 fade-in">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3428.4893368155214!2d112.93528091526984!3d28.228704682562683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDEzJzIxLjQiTiAxMTLCsDU2JzI2LjQiRQ!5e0!3m2!1sen!2sus!4v1649774779926!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" onerror="this.src='https://maps.google.com/maps?q=changsha&t=&z=13&ie=UTF8&iwloc=&output=embed'"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-12 fade-in">
+            <div class="elegant-card">
+                <h2 class="h3 mb-4">寻求合作</h2>
+                <p class="elegant-text">
+                    如果您正在寻找在自动化测试、性能优化或车载软件测试领域的专业人才，或有相关技术咨询需求，欢迎随时与我联系。我期待能通过我的专业知识和经验为您提供价值。
+                </p>
+                <p class="elegant-text">
+                    无论是在测试方法论、测试自动化、性能测试还是测试管理方面，我都可以提供专业的建议和支持。让我们一起探讨如何通过高效的测试来提升产品质量和用户体验。
+                </p>
+                <div class="text-center mt-4">
+                    <a href="mailto:li.09@qq.com" class="btn btn-outline-primary px-4 py-2">立即联系 <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %} 

@@ -1,10 +1,187 @@
 {% extends 'main/base.html' %}
-{% block title %}关于我{% endblock %}
+{% load static %}
+
+{% block title %}关于我 - 田海顺{% endblock %}
+
+{% block extra_css %}
+<style>
+    .about-section {
+        position: relative;
+    }
+    
+    .experience-card {
+        border-left: 4px solid var(--primary-color);
+        padding-left: 1.5rem;
+    }
+    
+    .quote-section {
+        padding: 6rem 0;
+        background-color: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .quote-section::before {
+        content: '"';
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        font-size: 15rem;
+        opacity: 0.03;
+        line-height: 1;
+        font-family: serif;
+    }
+    
+    .quote-text {
+        font-size: 1.5rem;
+        line-height: 1.7;
+        font-weight: 300;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        font-style: italic;
+    }
+    
+    .strength-icon {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-bottom: 1.25rem;
+        background-color: rgba(0, 123, 255, 0.1);
+    }
+    
+    .strength-icon i {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center mb-4">关于我</h1>
-    <p>我是田海顺，拥有丰富的软件测试经验，擅长自动化测试和性能优化。毕业于湘潭大学软件工程专业，并在湖南化工职业技术学院获得软件技术大专学位。</p>
-    <p>我在多个知名企业担任测试工程师，积累了丰富的项目经验，尤其是在自动化测试环境的搭建和优化方面。我熟练掌握Python、MySQL、Postman、Jmeter等工具，能够高效管理测试流程，确保任务的可追溯性和进度跟踪的准确性。</p>
-    <p>我热爱学习，积极向上，具有良好的团队合作精神和沟通能力。希望通过我的努力，为团队和公司创造更大的价值。</p>
+<div class="content-section">
+    <div class="row mb-5">
+        <div class="col-lg-8">
+            <h1 class="section-title fade-in">关于我</h1>
+            <p class="subtitle fade-in">专注于自动化测试和性能优化的资深测试工程师</p>
+            
+            <p class="elegant-text fade-in">
+                我是田海顺，一位拥有丰富经验的软件测试工程师，专注于自动化测试和性能优化领域。我毕业于湘潭大学软件工程专业，并在湖南化工职业技术学院获得软件技术大专学位。
+            </p>
+            
+            <p class="elegant-text fade-in">
+                在我的职业生涯中，我有幸在华为技术有限公司、小米汽车科技有限公司和高通企业管理（上海）有限公司等知名企业担任测试工程师，积累了丰富的项目经验。我尤其擅长自动化测试环境的搭建和优化，能够高效管理测试流程，确保任务的可追溯性和进度跟踪的准确性。
+            </p>
+            
+            <div class="experience-card mt-4 mb-4 fade-in">
+                <h3>教育背景</h3>
+                <ul class="mt-3">
+                    <li class="mb-3">
+                        <strong>湘潭大学（自考）</strong> - 软件工程 本科
+                        <div class="text-secondary">2021年09月 - 2023年12月</div>
+                    </li>
+                    <li>
+                        <strong>湖南化工职业技术学院</strong> - 软件技术 大专
+                        <div class="text-secondary">2018年09月 - 2021年06月</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="elegant-card text-center fade-in">
+                <img src="{% static 'img/profile.jpg' %}" alt="田海顺" class="rounded-circle img-fluid mb-4" style="width: 180px; height: 180px; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'">
+                <h3 class="mb-2">田海顺</h3>
+                <p class="text-secondary mb-3">资深测试工程师</p>
+                <div class="d-flex justify-content-center gap-3 mb-3">
+                    <a href="#" class="text-secondary fs-5"><i class="bi bi-github"></i></a>
+                    <a href="#" class="text-secondary fs-5"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-secondary fs-5"><i class="bi bi-wechat"></i></a>
+                </div>
+                <hr class="my-3">
+                <div class="text-start">
+                    <p class="mb-2"><i class="bi bi-telephone me-2 text-secondary"></i>18569246651</p>
+                    <p class="mb-2"><i class="bi bi-envelope me-2 text-secondary"></i>li.09@qq.com</p>
+                    <p class="mb-0"><i class="bi bi-geo-alt me-2 text-secondary"></i>中国，上海</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="section-title fade-in">我的优势</h2>
+            <div class="row mt-4 g-4">
+                <div class="col-md-4 fade-in">
+                    <div class="elegant-card h-100">
+                        <div class="strength-icon">
+                            <i class="bi bi-gear-fill"></i>
+                        </div>
+                        <h3>技术精湛</h3>
+                        <p>熟练掌握Python、MySQL、Selenium等工具，能够高效开发自动化测试脚本和执行性能测试。</p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="elegant-card h-100">
+                        <div class="strength-icon">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+                        <h3>问题分析能力</h3>
+                        <p>擅长定位复杂BUG并快速调试，能够通过缺陷跟踪与分析，推动系统功能和性能的全面优化。</p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="elegant-card h-100">
+                        <div class="strength-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h3>团队协作</h3>
+                        <p>良好的沟通能力和团队协作精神，能够有效协调测试团队与开发团队的高效协作。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="quote-section fade-in">
+    <div class="container text-center">
+        <p class="quote-text">
+            "质量不是被测试出来的，而是被设计进去的。我相信，优秀的测试不仅能发现问题，更能推动产品走向卓越。"
+        </p>
+        <p class="mt-4 text-secondary">— 田海顺</p>
+    </div>
+</section>
+
+<div class="content-section">
+    <div class="row">
+        <div class="col-12 mb-5">
+            <h2 class="section-title fade-in">个人总结</h2>
+            <div class="elegant-card fade-in">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="mb-4">个人特质</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="bi bi-check2-circle me-2 text-primary"></i>积极向上的乐观态度，对生活、工作充满热情</li>
+                            <li class="mb-3"><i class="bi bi-check2-circle me-2 text-primary"></i>具有非常好的团队合作精神和良好的组织沟通能力</li>
+                            <li class="mb-3"><i class="bi bi-check2-circle me-2 text-primary"></i>学习能力强，有较强的分析定位和解决问题的能力</li>
+                            <li class="mb-3"><i class="bi bi-check2-circle me-2 text-primary"></i>工作积极主动，有强烈责任心和严谨工作作风</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="mb-4">专业技能</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="bi bi-check2-circle me-2 text-primary"></i>精通自动化测试框架与工具（Selenium、Airtest）</li>
+                            <li class="mb-3"><i class="bi bi-check2-circle me-2 text-primary"></i>丰富的车载及电源硬件测试经验</li>
+                            <li class="mb-3"><i class="bi bi-check2-circle me-2 text-primary"></i>熟练使用PCAN/CANoe工具测试CAN(FD)和LIN总线协议</li>
+                            <li class="mb-3"><i class="bi bi-check2-circle me-2 text-primary"></i>熟练配置Jenkins持续集成工具</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %} 

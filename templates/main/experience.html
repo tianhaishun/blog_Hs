@@ -1,21 +1,270 @@
 {% extends 'main/base.html' %}
-{% block title %}职业经历{% endblock %}
+{% load static %}
+
+{% block title %}职业经历 - 田海顺{% endblock %}
+
+{% block extra_css %}
+<style>
+    .experience-timeline {
+        position: relative;
+        padding: 2rem 0;
+    }
+    
+    .company-logo {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    
+    .experience-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .experience-header-info {
+        margin-left: 1.25rem;
+    }
+    
+    .company-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+    
+    .job-title {
+        font-size: 1.1rem;
+        color: #666;
+        font-weight: 500;
+    }
+    
+    .date-badge {
+        display: inline-block;
+        padding: 0.35rem 1rem;
+        background-color: rgba(0, 123, 255, 0.1);
+        color: var(--primary-color);
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: 0.5rem;
+    }
+    
+    .achievement-list li {
+        margin-bottom: 1rem;
+        position: relative;
+        padding-left: 1.75rem;
+    }
+    
+    .achievement-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 8px;
+        height: 8px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+    }
+    
+    .animated-counter {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
+    }
+    
+    .experience-highlight {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 16px;
+        background-color: #f8f9fa;
+        transition: transform 0.3s ease;
+    }
+    
+    .experience-highlight:hover {
+        transform: translateY(-5px);
+    }
+    
+    .experience-highlight h3 {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        color: #555;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center mb-4">职业经历</h1>
-    <h3>华为技术有限公司（软通动力） - 半实物仿真测试</h3>
-    <p>2024年10月 - 2024年11月</p>
-    <ul>
-        <li>负责测试环境搭建与参数设置，确保设备正常连接并匹配测试需求。</li>
-        <li>执行孤岛测试用例，验证设备在设定的保护时间内关机，防止孤岛运行。</li>
-        <li>进行保护功能与高低穿越测试，确保设备在合理安全余量下正常工作。</li>
-    </ul>
-    <h3>小米汽车科技有限公司 - 测试工程师</h3>
-    <p>2023年11月 - 2024年09月</p>
-    <ul>
-        <li>开发并集成自动化脚本，覆盖智能座舱的核心车控功能。</li>
-        <li>进行系统启动时间、响应速度和资源消耗的性能测试。</li>
-        <li>测试和验证CAN（FD）、LIN等总线协议，确保通信协议的正确性和数据传输的可靠性。</li>
-    </ul>
+<div class="content-section">
+    <div class="row mb-5">
+        <div class="col-lg-8">
+            <h1 class="section-title fade-in">职业经历</h1>
+            <p class="subtitle fade-in">我的专业旅程和成长历程</p>
+        </div>
+    </div>
+    
+    <div class="row mb-5">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="elegant-card text-center fade-in">
+                <div class="animated-counter">5+</div>
+                <h3>年专业经验</h3>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="elegant-card text-center fade-in">
+                <div class="animated-counter">10+</div>
+                <h3>大型项目</h3>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="elegant-card text-center fade-in">
+                <div class="animated-counter">3+</div>
+                <h3>行业领域</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div class="experience-timeline fade-in">
+        <div class="elegant-card mb-4">
+            <div class="experience-header">
+                <img src="{% static 'img/xiaomi-logo.jpg' %}" alt="小米" class="company-logo" onerror="this.src='https://placehold.co/70x70/f5f5f5/555?text=小米'">
+                <div class="experience-header-info">
+                    <h2 class="company-name">小米汽车科技有限公司</h2>
+                    <div class="job-title">测试工程师 | 汽车部-智能座舱与APP部</div>
+                    <span class="date-badge">2023年11月 - 2024年09月</span>
+                </div>
+            </div>
+            
+            <p class="elegant-text">
+                在小米汽车科技有限公司工作期间，我负责智能座舱的自动化UI与功能测试、性能与稳定性优化、车载网络通信测试等工作，并参与了测试环境和基础设施的搭建。
+            </p>
+            
+            <h3 class="h5 mb-3">主要职责与成就</h3>
+            <ul class="achievement-list">
+                <li>使用Python和Airtest开发并集成自动化脚本，覆盖智能座舱的触摸反馈、页面跳转以及导航、娱乐和通信等核心车控功能。</li>
+                <li>进行系统启动时间、响应速度和资源消耗的性能测试，并通过故障注入（如断电、网络中断）和Monkey测试提升系统的鲁棒性和稳定性。</li>
+                <li>测试和验证CAN（FD）、LIN等总线协议，使用CANoe工具监控和分析通信，开发自动化脚本确保通信协议的正确性和数据传输的可靠性。</li>
+            </ul>
+        </div>
+        
+        <div class="elegant-card mb-4 fade-in">
+            <div class="experience-header">
+                <img src="{% static 'img/huawei-logo.jpg' %}" alt="华为" class="company-logo" onerror="this.src='https://placehold.co/70x70/f5f5f5/555?text=华为'">
+                <div class="experience-header-info">
+                    <h2 class="company-name">华为技术有限公司（软通动力）</h2>
+                    <div class="job-title">半实物仿真测试 | 智能光伏产品部-验证部自动化组</div>
+                    <span class="date-badge">2023年10月 - 2024年11月</span>
+                </div>
+            </div>
+            
+            <p class="elegant-text">
+                在华为技术有限公司工作期间，我主要负责光伏逆变器的半实物仿真测试，包括测试环境搭建、孤岛测试用例执行、保护功能与高低穿越测试等。
+            </p>
+            
+            <h3 class="h5 mb-3">主要职责与成就</h3>
+            <ul class="achievement-list">
+                <li>准备并配置测试设备，包括爱科赛博上位机软件、直流电源和交流电网模拟器，确保匹配测试需求。</li>
+                <li>使用TCL语言编写测试用例，从工程用例层到LAW层，再到BAW层逐步下发命令，控制逆变器启动、停止以及切换工作模式。</li>
+                <li>执行孤岛模式切换和保护功能测试，通过突然断开逆变器与电网的连接，验证设备是否能在设定的保护时间内关机，防止孤岛运行。</li>
+                <li>利用Dewetron设备采集电压、电流和功率波形，分析触发保护点、响应时间和高穿余量，验证逆变器的稳定性和保护机制。</li>
+            </ul>
+        </div>
+        
+        <div class="elegant-card mb-4 fade-in">
+            <div class="experience-header">
+                <img src="{% static 'img/qualcomm-logo.jpg' %}" alt="高通" class="company-logo" onerror="this.src='https://placehold.co/70x70/f5f5f5/555?text=高通'">
+                <div class="experience-header-info">
+                    <h2 class="company-name">高通企业管理（上海）有限公司</h2>
+                    <div class="job-title">测试工程师 | CNSS Team</div>
+                    <span class="date-badge">2020年06月 - 2023年07月</span>
+                </div>
+            </div>
+            
+            <p class="elegant-text">
+                在高通企业管理（上海）有限公司工作期间，我主要负责Wi-Fi和蓝牙芯片在X86平台的测试工作，确保芯片的性能与稳定性。
+            </p>
+            
+            <h3 class="h5 mb-3">主要职责与成就</h3>
+            <ul class="achievement-list">
+                <li>配置Linux服务器以自动启动核心测试服务，编写systemd服务单元文件，确保iperf服务在系统启动后立即运行，无需手动干预。</li>
+                <li>精心配置测试设备的网络设置，确保P2P测试的设备之间的无缝连接，包括调整IP地址、子网掩码、默认网关和防火墙规则。</li>
+                <li>开发了一系列自动化脚本，用于初始化和监控iperf测试，以及收集和分析数据，极大提高了测试准确性和效率。</li>
+                <li>实现了一套实时监控系统，自动检测测试设备状态并响应任何异常情况，确保测试的连续性和最小化的手动干预。</li>
+            </ul>
+        </div>
+    </div>
 </div>
+
+<section class="py-5 bg-light fade-in">
+    <div class="container">
+        <h2 class="text-center mb-5">我的专长领域</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="experience-highlight fade-in">
+                    <i class="bi bi-code-square fs-1 text-primary"></i>
+                    <h3>自动化测试</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="experience-highlight fade-in">
+                    <i class="bi bi-car-front fs-1 text-primary"></i>
+                    <h3>车载软件测试</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="experience-highlight fade-in">
+                    <i class="bi bi-lightning-charge fs-1 text-primary"></i>
+                    <h3>性能测试</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="experience-highlight fade-in">
+                    <i class="bi bi-cpu fs-1 text-primary"></i>
+                    <h3>硬件测试</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // 添加数字增长动画
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.animated-counter');
+        
+        counters.forEach(counter => {
+            const target = parseFloat(counter.textContent);
+            const duration = 2000; // 2 seconds
+            const stepTime = 50; // update every 50ms
+            const steps = duration / stepTime;
+            const stepValue = target / steps;
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += stepValue;
+                if (current < target) {
+                    counter.textContent = current.toFixed(1);
+                    setTimeout(updateCounter, stepTime);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+            
+            // Start animation when element is in viewport
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    counter.textContent = '0';
+                    updateCounter();
+                    observer.disconnect();
+                }
+            });
+            
+            observer.observe(counter);
+        });
+    });
+</script>
 {% endblock %} 
